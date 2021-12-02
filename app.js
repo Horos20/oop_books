@@ -4,6 +4,8 @@ const ls = new LS()
 const form = document.querySelector("form");
 form.addEventListener("submit", addBook);
 document.addEventListener('DOMContentLoaded', getBooks)
+const bookTable = document.querySelector('.rida');
+bookTable.addEventListener("click", deleteBook);
 
 function getBooks() {
     const books = ls.getData("books")
@@ -37,4 +39,15 @@ function addBook(event) {
 
     // Form submit event control
     event.preventDefault();
+}
+
+function deleteBook(event) {
+    if(event.target.textContent === "x") {
+        if(confirm("Delete?")) {
+            let td_element = event.target.parentElement;
+            let book = td_element.parentElement.firstElementChild.textContent;
+            ui.deleteBook(td_element)
+            ls.deleteBook(book)
+        }
+    }
 }

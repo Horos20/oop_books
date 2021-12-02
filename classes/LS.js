@@ -16,4 +16,13 @@ class LS{
         books.push(book);
         this.setData("books", books)
     }
+    deleteBook(book) {
+        let books = this.getData("books")
+        books.forEach(function (booksElement, key) {
+            if(booksElement["title"] === book) {
+                books.splice(key, 1);
+            }
+        });
+        this.setData("books", books)
+    }
 }

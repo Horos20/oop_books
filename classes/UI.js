@@ -42,4 +42,7 @@ class UI {
         tr.appendChild(td4);
         td4.appendChild(alink);
     }
+    deleteBook(td_element) {
+        td_element.parentElement.remove();
+    }
 }
